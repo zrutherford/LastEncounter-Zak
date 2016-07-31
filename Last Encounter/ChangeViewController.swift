@@ -24,7 +24,10 @@ class ChangeViewController: UIViewController {
 
     
     
-    
-    
-    
+    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCellWithIdentifier("CollegeCell", forIndexPath: indexPath)
+        cell.textLabel?.text = "Weapon"
+        return cell
+    }
+  
 }

@@ -179,7 +179,7 @@ class AllocationViewController: UIViewController {
     
     @IBAction func onTappedDoneButton(sender: UIButton) {
         if points == 0 {
-            
+            performSegueWithIdentifier("doneSeg", sender: nil)
         }
         else{
             print("Still Points Left")
