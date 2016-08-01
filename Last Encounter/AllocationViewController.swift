@@ -24,158 +24,66 @@ class AllocationViewController: UIViewController {
     var magic = 10
     var defense = 10
     
-    func increase (stat: Int, display: UILabel){
+    func increase (var stat: Int, display: UILabel) -> Int{
         if points == 0{
             print("No Points Left")
         }
         else{
             points = points - 1
-            var stat = stat + 1
+            stat = stat + 1
             display.text = "\(stat)"
             alloPoints.text = "\(points)"
         }
+        return stat
     }
     
-    func decrease(stat: Int, display: UILabel){
+    func decrease(var stat: Int, display: UILabel) -> Int{
         if stat == 10{
             print("Can't Go Lower")
         }
         else{
             points = points + 1
-            var stat = stat - 1
+            stat = stat - 1
             display.text = "\(stat)"
             alloPoints.text = "\(points)"
         }
+        return stat
     }
 
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
     }
-
     @IBAction func onTappedIncreaseHealth(sender: AnyObject) {
-        if points == 0{
-            print("No Points Left")
-        }
-        else{
-            points = points - 1
-            health = health + 1
-            healthPoints.text = "\(health)"
-            alloPoints.text = "\(points)"
-        }
+        health = increase(health, display: healthPoints)
     }
-    
     @IBAction func onTappedIncreaseSpeed(sender: AnyObject) {
-        if points == 0{
-            print("No Points Left")
-        }
-        else{
-            points = points - 1
-            speed = speed + 1
-            speedPoints.text = "\(speed)"
-            alloPoints.text = "\(points)"
-        }
+        speed = increase(speed, display: speedPoints)
     }
-    
     @IBAction func onTappedIncreaseStrength(sender: AnyObject) {
-        if points == 0{
-            print("No Points Left")
-        }
-        else{
-            points = points - 1
-            strength = strength + 1
-            strengthPoints.text = "\(strength)"
-            alloPoints.text = "\(points)"
-        }
+        strength = increase(strength, display: strengthPoints)
     }
-    
     @IBAction func onTappedIncreaseMagic(sender: AnyObject) {
-        if points == 0{
-            print("No Points Left")
-        }
-        else{
-            points = points - 1
-            magic = magic + 1
-            magicPoints.text = "\(magic)"
-            alloPoints.text = "\(points)"
-        }
+        magic = increase(magic, display: magicPoints)
     }
-
     @IBAction func onTappedIncreaseDefense(sender: AnyObject) {
-        if points == 0{
-            print("No Points Left")
-        }
-        else{
-            points = points - 1
-            defense = defense + 1
-            defensePoints.text = "\(defense)"
-            alloPoints.text = "\(points)"
-        }
+        defense = increase(defense, display: defensePoints)
     }
-    
     @IBAction func onTappedDecreaseHealth(sender: AnyObject) {
-        if health == 0{
-            print("No Points Left")
-        }
-        else{
-            points = points + 1
-            health = health - 1
-            healthPoints.text = "\(health)"
-            alloPoints.text = "\(points)"
-        }
+        health = decrease(health, display: healthPoints)
     }
- 
     @IBAction func onTappedDecreaseSpeed(sender: AnyObject) {
-        if speed == 0{
-            print("No Points Left")
-        }
-        else{
-            points = points + 1
-            speed = speed - 1
-            speedPoints.text = "\(speed)"
-            alloPoints.text = "\(points)"
-        }
+        speed = decrease(speed, display: speedPoints)
     }
-
     @IBAction func onTappedDecreaseStrength(sender: AnyObject) {
-        if strength == 0{
-            print("No Points Left")
-        }
-        else{
-            points = points + 1
-            strength = strength - 1
-            strengthPoints.text = "\(strength)"
-            alloPoints.text = "\(points)"
-        }
-
+        strength = decrease(strength, display: strengthPoints)
     }
-    
     @IBAction func onTappedDecreaseMagic(sender: AnyObject) {
-        if magic == 0{
-            print("No Points Left")
-        }
-        else{
-            points = points + 1
-            magic = magic - 1
-            magicPoints.text = "\(magic)"
-            alloPoints.text = "\(points)"
-        }
+        magic = decrease(magic, display: magicPoints)
     }
-    
     @IBAction func onTappedDecreaseDefense(sender: AnyObject) {
-        if defense == 0{
-            print("No Points Left")
-        }
-        else{
-            points = points + 1
-            defense = defense - 1
-            defensePoints.text = "\(defense)"
-            alloPoints.text = "\(points)"
-        }
+        defense = decrease(defense, display: defensePoints)
     }
-    
-
     
     @IBAction func onTappedDoneButton(sender: UIButton) {
         if points == 0 {

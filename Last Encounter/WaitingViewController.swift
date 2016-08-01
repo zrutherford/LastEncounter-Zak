@@ -9,27 +9,24 @@
 import UIKit
 
 class WaitingViewController: UIViewController {
-
+    
+    var tillNextHero = 0
+    @IBOutlet weak var warningLable: UILabel!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+        if tillNextHero == 0 {
+        tillNextHero = resetHeroTimer()
+        }
+        warningLable.text = "The Next Hero Will Be Here In \(tillNextHero) Turn(s)!"
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    func resetHeroTimer()->Int{
+        let initial = arc4random_uniform(4)
+        let setup = initial + 1
+        let timer = Int(setup)
+        return timer
     }
-    */
 
+    
 }
